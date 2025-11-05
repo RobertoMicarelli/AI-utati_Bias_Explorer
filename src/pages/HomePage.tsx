@@ -123,7 +123,7 @@ const HomePage: React.FC = () => {
           </p>
           <div className="border-t border-gray-300 pt-4 mt-4 space-y-2">
             <p className="text-xs text-gray-500">
-              Software Realizzato dal Dr Roberto Micarelli (AI-utati). Contenuti sui Bias tratti dal Libro:{' '}
+              Contenuti sui Bias tratti dal Libro:{' '}
               <a 
                 href="https://amzn.to/3JnVYkW" 
                 target="_blank" 
@@ -135,6 +135,7 @@ const HomePage: React.FC = () => {
               {' '}Mondino L., Brambilla L.
             </p>
             <p className="text-xs text-gray-500">
+              APP Realizzata dal Dr Roberto Micarelli (AI-utati){' '}
               <a 
                 href="https://www.ai.utati.it" 
                 target="_blank" 
@@ -142,6 +143,13 @@ const HomePage: React.FC = () => {
                 className="text-primary-600 hover:text-primary-700 underline font-medium"
               >
                 www.ai.utati.it
+              </a>
+              {' '}•{' '}
+              <a 
+                href="mailto:roberto@ai-utati.it" 
+                className="text-primary-600 hover:text-primary-700 underline font-medium"
+              >
+                roberto@ai-utati.it
               </a>
               {' '}• Tel:{' '}
               <a 
