@@ -137,12 +137,12 @@ const HomePage: React.FC = () => {
             <p className="text-xs text-gray-500">
               APP Realizzata dal Dr Roberto Micarelli (AI-utati){' '}
               <a 
-                href="https://www.ai.utati.it" 
+                href="https://www.ai-iutati.it" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary-600 hover:text-primary-700 underline font-medium"
               >
-                www.ai.utati.it
+                www.ai-iutati.it
               </a>
               {' '}•{' '}
               <a 
