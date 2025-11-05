@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
           <p className="text-sm mb-2">
             Database completo di bias cognitivi per la formazione e la consapevolezza decisionale
           </p>
-          <div className="border-t border-gray-300 pt-4 mt-4">
+          <div className="border-t border-gray-300 pt-4 mt-4 space-y-2">
             <p className="text-xs text-gray-500">
               Software Realizzato dal Dr Roberto Micarelli (AI-utati). Contenuti sui Bias tratti dal Libro:{' '}
               <a 
@@ -133,6 +133,23 @@ const HomePage: React.FC = () => {
                 "Gli errori della mente"
               </a>
               {' '}Mondino L., Brambilla L.
+            </p>
+            <p className="text-xs text-gray-500">
+              <a 
+                href="https://www.ai.utati.it" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-600 hover:text-primary-700 underline font-medium"
+              >
+                www.ai.utati.it
+              </a>
+              {' '}• Tel:{' '}
+              <a 
+                href="tel:+39335450705" 
+                className="text-primary-600 hover:text-primary-700 underline font-medium"
+              >
+                335 450 705
+              </a>
             </p>
           </div>
         </div>
