@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // Percorsi assoluti dei file originali (i file sono stati copiati in public/ per essere serviti)
-// Originale: /Users/robertomicarelli/Desktop/CURSOR.AI/Bias Explorer/Logo_Aiutati_Tondo.png
+// Originale: /Users/robertomicarelli/Desktop/CURSOR.AI/Bias Explorer/Icona-Biasino.png
 // Originale: /Users/robertomicarelli/Desktop/CURSOR.AI/Bias Explorer/Cognitive_Bias_Codex.jpg
-const logoImage = '/Logo_Aiutati_Tondo.png';
+const logoImage = '/Icona-Biasino.png';
 const codexImage = '/Cognitive_Bias_Codex.jpg';
 
 const HomePage: React.FC = () => {
@@ -22,25 +22,22 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="max-w-5xl w-full">
-        {/* Logo */}
-        <div className="flex justify-center mb-8 animate-fadeIn">
-          <img 
-            src={logoImage}
-            alt="AI-utati Logo"
-            className="w-32 h-32 object-contain"
-          />
-        </div>
-
-        {/* Header con animazione */}
+        {/* Logo e Header */}
         <div className="text-center mb-12 animate-fadeIn">
-          <h1 className="text-6xl font-black mb-6 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-            🧠 COGNITIVE BIAS EXPLORER 🧠
-          </h1>
-          <p className="text-2xl font-semibold text-gray-700 mb-2">
-            Scopri le scorciatoie della mente umana
-          </p>
-          <p className="text-xl text-accent-600 font-medium">
-            😉 Conoscerle ti rende più consapevole 😉
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
+            <img 
+              src={logoImage}
+              alt="Biasino Logo"
+              style={{ width: '120px', height: '120px', objectFit: 'contain', marginBottom: '0.5rem' }}
+            />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+              <h1 style={{ fontFamily: '"Syne", sans-serif', fontSize: '3rem', fontWeight: 700, color: '#0094B5', margin: 0 }}>
+                Cognitive Bias Explorer
+              </h1>
+            </div>
+          </div>
+          <p style={{ fontSize: '1.125rem', color: '#F3832C', maxWidth: '600px', margin: '0 auto' }}>
+            Scopri le scorciatoie della mente umana - Conoscerle ti rende più consapevole
           </p>
         </div>
 
@@ -56,25 +53,25 @@ const HomePage: React.FC = () => {
             </div>
             
             <div className="flex-1 space-y-6">
-              <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-6 rounded-xl">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem' }}>
                   231 Bias Cognitivi
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Il nostro cervello usa <span className="font-semibold text-primary-600">scorciatoie mentali</span> per 
+                <p style={{ fontSize: '1.125rem', color: '#F3832C', lineHeight: '1.75' }}>
+                  Il nostro cervello usa <span style={{ fontWeight: 600, color: '#0094B5' }}>scorciatoie mentali</span> per 
                   prendere decisioni rapide. Queste euristiche sono utili, ma possono portare a 
-                  <span className="font-semibold text-accent-600"> errori sistematici</span> nel giudizio.
+                  <span style={{ fontWeight: 600, color: '#0094B5' }}> errori sistematici</span> nel giudizio.
                 </p>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-xl shadow-md border-2 border-primary-200">
-                  <div className="text-3xl font-black text-primary-600">107</div>
-                  <div className="text-sm text-gray-600 font-medium">Tag Unici</div>
+                <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1rem', borderRadius: '12px', border: '2px solid rgba(0, 148, 181, 0.3)' }}>
+                  <div style={{ fontSize: '1.875rem', fontWeight: 900, color: '#0094B5' }}>107</div>
+                  <div style={{ fontSize: '0.875rem', color: '#F3832C', fontWeight: 500 }}>Tag Unici</div>
                 </div>
-                <div className="bg-white p-4 rounded-xl shadow-md border-2 border-accent-200">
-                  <div className="text-3xl font-black text-accent-600">11</div>
-                  <div className="text-sm text-gray-600 font-medium">Categorie</div>
+                <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1rem', borderRadius: '12px', border: '2px solid rgba(243, 131, 44, 0.3)' }}>
+                  <div style={{ fontSize: '1.875rem', fontWeight: 900, color: '#F3832C' }}>11</div>
+                  <div style={{ fontSize: '0.875rem', color: '#F3832C', fontWeight: 500 }}>Categorie</div>
                 </div>
               </div>
             </div>
@@ -83,7 +80,7 @@ const HomePage: React.FC = () => {
 
         {/* Ricerca rapida */}
         <div className="card p-8 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+          <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#0094B5', marginBottom: '1.5rem', textAlign: 'center' }}>
             🔍 Inizia la tua esplorazione
           </h2>
           
@@ -117,48 +114,58 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* Footer info */}
-        <div className="mt-12 text-center text-gray-600 animate-fadeIn" style={{ animationDelay: '0.6s' }}>
-          <p className="text-sm mb-2">
+        <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', color: '#F3832C', fontSize: '0.875rem' }} className="animate-fadeIn">
+          <p style={{ marginBottom: '0.5rem', color: '#F3832C', fontSize: '0.875rem' }}>
             Database completo di bias cognitivi per la formazione e la consapevolezza decisionale
           </p>
-          <div className="border-t border-gray-300 pt-4 mt-4 space-y-2">
-            <p className="text-xs text-gray-500">
+          <div style={{ paddingTop: '1rem', marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <p style={{ fontSize: '0.75rem', color: '#F3832C' }}>
               Contenuti sui Bias tratti dal Libro:{' '}
               <a 
                 href="https://amzn.to/3JnVYkW" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-primary-600 hover:text-primary-700 underline font-medium"
+                style={{ color: '#F3832C', textDecoration: 'none', transition: 'color 0.3s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
               >
                 "Gli errori della mente"
               </a>
               {' '}Mondino L., Brambilla L.
             </p>
-            <p className="text-xs text-gray-500">
-              APP Realizzata dal Dr Roberto Micarelli (AI-utati){' '}
+            <p style={{ marginBottom: '0.5rem', color: '#0094B5', fontSize: '0.875rem' }}>
+              APP realizzata da <strong style={{ color: '#0094B5' }}>Roberto Micarelli</strong>
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', fontSize: '0.75rem' }}>
               <a 
                 href="https://www.ai-utati.it/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-primary-600 hover:text-primary-700 underline font-medium"
+                style={{ color: '#F3832C', textDecoration: 'none', transition: 'color 0.3s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
               >
-                www.ai-utati.it
+                https://www.ai-utati.it
               </a>
-              {' '}•{' '}
+              <span style={{ color: '#666' }}>•</span>
               <a 
                 href="mailto:roberto@ai-utati.it" 
-                className="text-primary-600 hover:text-primary-700 underline font-medium"
+                style={{ color: '#F3832C', textDecoration: 'none', transition: 'color 0.3s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
               >
                 roberto@ai-utati.it
               </a>
-              {' '}• Tel:{' '}
+              <span style={{ color: '#666' }}>•</span>
               <a 
                 href="tel:+39335450705" 
-                className="text-primary-600 hover:text-primary-700 underline font-medium"
+                style={{ color: '#F3832C', textDecoration: 'none', transition: 'color 0.3s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
               >
                 335 450 705
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>

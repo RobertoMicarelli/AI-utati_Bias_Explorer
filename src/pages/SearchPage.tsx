@@ -58,14 +58,16 @@ const SearchPage: React.FC = () => {
         <div className="mb-8">
           <button
             onClick={() => navigate('/')}
-            className="text-primary-600 hover:text-primary-700 font-semibold mb-4 flex items-center gap-2 transition-colors"
+            style={{ color: '#F3832C', fontWeight: 600, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'color 0.3s ease', background: 'none', border: 'none', cursor: 'pointer' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
           >
             ← Torna alla Home
           </button>
-          <h1 className="text-4xl font-black text-gray-800 mb-2">
+          <h1 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#0094B5', marginBottom: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
             🔍 Ricerca Avanzata
           </h1>
-          <p className="text-gray-600">
+          <p style={{ color: '#F3832C' }}>
             Esplora i {biases.length} bias cognitivi con filtri multipli
           </p>
         </div>
@@ -74,7 +76,7 @@ const SearchPage: React.FC = () => {
         <div className="card p-6 mb-8 space-y-6">
           {/* Dropdown - Selezione diretta */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#F3832C', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               📋 Seleziona un bias specifico
             </label>
             <select
@@ -93,7 +95,7 @@ const SearchPage: React.FC = () => {
 
           {/* Nome - Ricerca libera */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#F3832C', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               🔤 Ricerca per nome (parola chiave)
             </label>
             <input
@@ -107,7 +109,7 @@ const SearchPage: React.FC = () => {
 
           {/* Descrizione - Ricerca libera */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#F3832C', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               📝 Ricerca nella descrizione
             </label>
             <input
@@ -124,7 +126,9 @@ const SearchPage: React.FC = () => {
             <div className="flex justify-end">
               <button
                 onClick={clearFilters}
-                className="text-red-600 hover:text-red-700 font-semibold text-sm flex items-center gap-2"
+                style={{ color: '#F3832C', fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.3s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
               >
                 ✕ Cancella tutti i filtri
               </button>
@@ -134,7 +138,7 @@ const SearchPage: React.FC = () => {
 
         {/* Tags Filter */}
         <div className="card p-6 mb-8">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', fontFamily: '"Syne", sans-serif' }}>
             🏷️ Filtra per Tag ({selectedTags.length} selezionati)
           </h3>
           <div className="flex flex-wrap gap-3">
@@ -153,7 +157,7 @@ const SearchPage: React.FC = () => {
         {/* Results */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', fontFamily: '"Syne", sans-serif' }}>
               📊 Risultati ({filteredBiases.length})
             </h2>
           </div>
@@ -161,7 +165,7 @@ const SearchPage: React.FC = () => {
           {filteredBiases.length === 0 ? (
             <div className="card p-12 text-center">
               <div className="text-6xl mb-4">🤔</div>
-              <p className="text-xl text-gray-600">
+              <p style={{ fontSize: '1.25rem', color: '#F3832C' }}>
                 Nessun bias trovato con i criteri selezionati
               </p>
               <button
@@ -185,10 +189,10 @@ const SearchPage: React.FC = () => {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0094B5', marginBottom: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                           {bias.Bias}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p style={{ color: '#F3832C', lineHeight: '1.75' }}>
                           {truncateText(bias.Descrizione, 200)}
                         </p>
                         
