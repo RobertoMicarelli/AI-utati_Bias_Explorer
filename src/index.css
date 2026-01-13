@@ -76,7 +76,36 @@
   }
 
   .tag {
-    @apply inline-block px-3 py-1 rounded-full text-sm font-medium cursor-pointer transition-all;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(243, 131, 44, 0.1);
+    color: #F3832C;
+    border: 2px solid rgba(243, 131, 44, 0.3);
+  }
+
+  .tag:hover {
+    background: rgba(243, 131, 44, 0.2);
+    border-color: #F3832C;
+    transform: translateY(-2px);
+  }
+
+  .tag-active,
+  .tag-selected {
+    background: #0094B5;
+    color: white;
+    border-color: #0094B5;
+  }
+
+  .tag-active:hover,
+  .tag-selected:hover {
+    background: rgba(0, 148, 181, 0.9);
+    border-color: rgba(0, 148, 181, 0.9);
+    transform: translateY(-2px);
   }
 
   .tag-primary {
@@ -85,10 +114,6 @@
 
   .tag-accent {
     @apply bg-accent-100 text-accent-700 hover:bg-accent-200;
-  }
-
-  .tag-selected {
-    @apply bg-primary-600 text-white hover:bg-primary-700;
   }
 }
 

@@ -199,12 +199,12 @@ const SearchPage: React.FC = () => {
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2 mt-4">
                           {bias["TAG 1"] && (
-                            <span className="inline-block bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-xs font-semibold">
+                            <span style={{ display: 'inline-block', background: 'rgba(243, 131, 44, 0.1)', color: '#F3832C', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 600, border: '1px solid rgba(243, 131, 44, 0.3)' }}>
                               {formatTag(bias["TAG 1"])}
                             </span>
                           )}
                           {bias.TAG2 && (
-                            <span className="inline-block bg-accent-100 text-accent-700 px-3 py-1 rounded-full text-xs font-semibold">
+                            <span style={{ display: 'inline-block', background: 'rgba(243, 131, 44, 0.1)', color: '#F3832C', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 600, border: '1px solid rgba(243, 131, 44, 0.3)' }}>
                               {formatTag(bias.TAG2)}
                             </span>
                           )}
