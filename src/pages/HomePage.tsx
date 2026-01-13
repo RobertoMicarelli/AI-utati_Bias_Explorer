@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 // Percorsi assoluti dei file originali (i file sono stati copiati in public/ per essere serviti)
 // Originale: /Users/robertomicarelli/Desktop/CURSOR.AI/Bias Explorer/Icona-Biasino.png
@@ -9,6 +9,10 @@ const codexImage = '/Cognitive_Bias_Codex.jpg';
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [quickSearch, setQuickSearch] = useState('');
+  const [isCodexModalOpen, setIsCodexModalOpen] = useState(false);
+  const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
+  const [showMagnifier, setShowMagnifier] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   const handleQuickSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,8 +52,13 @@ const HomePage: React.FC = () => {
               <img 
                 src={codexImage}
                 alt="Cognitive Bias Codex"
-                className="rounded-xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                className="rounded-xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in"
+                onClick={() => setIsCodexModalOpen(true)}
+                style={{ cursor: 'zoom-in' }}
               />
+              <p style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#F3832C', textAlign: 'center' }}>
+                🔍 Clicca per ingrandire e esplorare
+              </p>
             </div>
             
             <div className="flex-1 space-y-6">
@@ -169,6 +178,145 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Codex Modal with Magnifying Glass */}
+      {isCodexModalOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.95)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '2rem',
+            cursor: showMagnifier ? 'none' : 'zoom-out'
+          }}
+          onClick={() => setIsCodexModalOpen(false)}
+        >
+          <div
+            style={{
+              position: 'relative',
+              maxWidth: '100%',
+              maxHeight: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onClick={(e) => e.stopPropagation()}
+            onMouseMove={(e) => {
+              if (imageRef.current) {
+                const rect = imageRef.current.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                setMagnifierPosition({ x: xPercent, y: yPercent });
+                setShowMagnifier(true);
+              }
+            }}
+            onMouseLeave={() => setShowMagnifier(false)}
+          >
+            <img
+              ref={imageRef}
+              src={codexImage}
+              alt="Cognitive Bias Codex - Ingrandito"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '90vh',
+                objectFit: 'contain',
+                borderRadius: '12px',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                userSelect: 'none',
+                pointerEvents: 'auto'
+              }}
+            />
+            
+            {/* Magnifying Glass */}
+            {showMagnifier && imageRef.current && (
+              <div
+                style={{
+                  position: 'absolute',
+                  left: `${magnifierPosition.x}%`,
+                  top: `${magnifierPosition.y}%`,
+                  width: '300px',
+                  height: '300px',
+                  borderRadius: '50%',
+                  border: '4px solid #0094B5',
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  pointerEvents: 'none',
+                  transform: 'translate(-50%, -50%)',
+                  boxShadow: '0 0 40px rgba(0, 148, 181, 0.7), inset 0 0 40px rgba(0, 148, 181, 0.3)',
+                  backgroundImage: `url(${codexImage})`,
+                  backgroundSize: `${imageRef.current.offsetWidth * 3}px ${imageRef.current.offsetHeight * 3}px`,
+                  backgroundPosition: `-${(magnifierPosition.x / 100) * imageRef.current.offsetWidth * 3 - 150}px -${(magnifierPosition.y / 100) * imageRef.current.offsetHeight * 3 - 150}px`,
+                  backgroundRepeat: 'no-repeat',
+                  zIndex: 10000,
+                  overflow: 'hidden'
+                }}
+              />
+            )}
+
+            {/* Close Button */}
+            <button
+              onClick={() => setIsCodexModalOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                background: 'rgba(0, 148, 181, 0.9)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '50%',
+                width: '48px',
+                height: '48px',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                transition: 'all 0.3s ease',
+                zIndex: 10001
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(243, 131, 44, 0.9)';
+                e.currentTarget.style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 148, 181, 0.9)';
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            >
+              ×
+            </button>
+
+            {/* Instructions */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '2rem',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                background: 'rgba(0, 0, 0, 0.7)',
+                color: '#F3832C',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                fontSize: '0.875rem',
+                textAlign: 'center',
+                pointerEvents: 'none',
+                zIndex: 10001
+              }}
+            >
+              🔍 Passa il mouse sull'immagine per ingrandire • Clicca fuori per chiudere
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
