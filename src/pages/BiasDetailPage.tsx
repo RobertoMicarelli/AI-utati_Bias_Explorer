@@ -22,7 +22,7 @@ const BiasDetailPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="card p-12 text-center">
           <div className="text-6xl mb-4">⚠️</div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', fontFamily: '"Syne", sans-serif' }}>
             Bias non trovato
           </h2>
           <button
@@ -57,7 +57,9 @@ const BiasDetailPage: React.FC = () => {
         <div className="mb-6 flex items-center justify-between">
           <button
             onClick={() => navigate('/search')}
-            className="text-primary-600 hover:text-primary-700 font-semibold flex items-center gap-2 transition-colors"
+            style={{ color: '#F3832C', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'color 0.3s ease', background: 'none', border: 'none', cursor: 'pointer' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#0094B5'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#F3832C'}
           >
             ← Torna ai risultati
           </button>
@@ -66,17 +68,21 @@ const BiasDetailPage: React.FC = () => {
             <button
               onClick={goToPreviousBias}
               disabled={biasIndex === 0}
-              className="text-gray-600 hover:text-gray-800 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors font-semibold"
+              style={{ color: biasIndex === 0 ? 'rgba(243, 131, 44, 0.5)' : '#F3832C', fontWeight: 600, transition: 'color 0.3s ease', background: 'none', border: 'none', cursor: biasIndex === 0 ? 'not-allowed' : 'pointer' }}
+              onMouseEnter={(e) => { if (biasIndex !== 0) e.currentTarget.style.color = '#0094B5' }}
+              onMouseLeave={(e) => { if (biasIndex !== 0) e.currentTarget.style.color = '#F3832C' }}
             >
               ← Bias precedente
             </button>
-            <span className="text-sm text-gray-500">
+            <span style={{ fontSize: '0.875rem', color: '#F3832C' }}>
               {biasIndex + 1} / {biases.length}
             </span>
             <button
               onClick={goToNextBias}
               disabled={biasIndex === biases.length - 1}
-              className="text-gray-600 hover:text-gray-800 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors font-semibold"
+              style={{ color: biasIndex === biases.length - 1 ? 'rgba(243, 131, 44, 0.5)' : '#F3832C', fontWeight: 600, transition: 'color 0.3s ease', background: 'none', border: 'none', cursor: biasIndex === biases.length - 1 ? 'not-allowed' : 'pointer' }}
+              onMouseEnter={(e) => { if (biasIndex !== biases.length - 1) e.currentTarget.style.color = '#0094B5' }}
+              onMouseLeave={(e) => { if (biasIndex !== biases.length - 1) e.currentTarget.style.color = '#F3832C' }}
             >
               Bias successivo →
             </button>
@@ -87,21 +93,37 @@ const BiasDetailPage: React.FC = () => {
         <div className="flex justify-center gap-2 mb-6">
           <button
             onClick={() => setCurrentPage(1)}
-            className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-              currentPage === 1
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-            }`}
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              fontWeight: 600,
+              transition: 'all 0.3s ease',
+              border: 'none',
+              cursor: 'pointer',
+              ...(currentPage === 1
+                ? { background: '#0094B5', color: 'white', boxShadow: '0 4px 12px rgba(0, 148, 181, 0.3)' }
+                : { background: 'rgba(255, 255, 255, 0.1)', color: '#F3832C', border: '1px solid rgba(255, 255, 255, 0.2)' })
+            }}
+            onMouseEnter={(e) => { if (currentPage !== 1) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)' }}
+            onMouseLeave={(e) => { if (currentPage !== 1) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)' }}
           >
             Pagina 1
           </button>
           <button
             onClick={() => setCurrentPage(2)}
-            className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-              currentPage === 2
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-            }`}
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '8px',
+              fontWeight: 600,
+              transition: 'all 0.3s ease',
+              border: 'none',
+              cursor: 'pointer',
+              ...(currentPage === 2
+                ? { background: '#0094B5', color: 'white', boxShadow: '0 4px 12px rgba(0, 148, 181, 0.3)' }
+                : { background: 'rgba(255, 255, 255, 0.1)', color: '#F3832C', border: '1px solid rgba(255, 255, 255, 0.2)' })
+            }}
+            onMouseEnter={(e) => { if (currentPage !== 2) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)' }}
+            onMouseLeave={(e) => { if (currentPage !== 2) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)' }}
           >
             Pagina 2
           </button>
@@ -113,8 +135,8 @@ const BiasDetailPage: React.FC = () => {
             // PAGE 1: Bias, Descrizione, Contestualizzazione, Vantaggi, Svantaggi
             <div className="space-y-8">
               {/* Title */}
-              <div className="border-b-4 border-primary-500 pb-6">
-                <h1 className="text-4xl font-black text-gray-800 mb-4">
+              <div style={{ borderBottom: '4px solid #0094B5', paddingBottom: '1.5rem' }}>
+                <h1 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#0094B5', marginBottom: '1rem', fontFamily: '"Syne", sans-serif' }}>
                   {bias.Bias}
                 </h1>
                 <div className="flex flex-wrap gap-2">
@@ -137,41 +159,41 @@ const BiasDetailPage: React.FC = () => {
               </div>
 
               {/* Descrizione */}
-              <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-xl">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <div style={{ background: 'rgba(0, 148, 181, 0.1)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0, 148, 181, 0.3)' }}>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                   📖 Descrizione
                 </h2>
-                <p className="text-gray-700 leading-relaxed text-lg">
+                <p style={{ color: '#F3832C', lineHeight: '1.75', fontSize: '1.125rem' }}>
                   {bias.Descrizione}
                 </p>
               </div>
 
               {/* Contestualizzazione nel Reale */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                   🌍 Contestualizzazione nel Reale
                 </h2>
-                <p className="text-gray-700 leading-relaxed">
+                <p style={{ color: '#F3832C', lineHeight: '1.75' }}>
                   {bias["Contestualizzazione nel Reale"]}
                 </p>
               </div>
 
               {/* Vantaggi e Svantaggi */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-green-50 p-6 rounded-xl border-2 border-green-200">
-                  <h2 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">
+                <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1.5rem', borderRadius: '12px', border: '2px solid rgba(16, 185, 129, 0.3)' }}>
+                  <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                     ✅ Vantaggi
                   </h2>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p style={{ color: '#F3832C', lineHeight: '1.75' }}>
                     {bias.Vantaggi}
                   </p>
                 </div>
 
-                <div className="bg-red-50 p-6 rounded-xl border-2 border-red-200">
-                  <h2 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-2">
+                <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1.5rem', borderRadius: '12px', border: '2px solid rgba(239, 68, 68, 0.3)' }}>
+                  <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                     ⚠️ Svantaggi
                   </h2>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p style={{ color: '#F3832C', lineHeight: '1.75' }}>
                     {bias.Svantaggi}
                   </p>
                 </div>
@@ -181,51 +203,51 @@ const BiasDetailPage: React.FC = () => {
             // PAGE 2: Tecniche per Gestirlo, Attività Esperienziale, Fonti, Tag Cluster
             <div className="space-y-8">
               {/* Title */}
-              <div className="border-b-4 border-accent-500 pb-6">
-                <h1 className="text-4xl font-black text-gray-800">
+              <div style={{ borderBottom: '4px solid #F3832C', paddingBottom: '1.5rem' }}>
+                <h1 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#0094B5', fontFamily: '"Syne", sans-serif' }}>
                   {bias.Bias}
                 </h1>
-                <p className="text-gray-600 mt-2">Pagina 2: Gestione e Approfondimenti</p>
+                <p style={{ color: '#F3832C', marginTop: '0.5rem' }}>Pagina 2: Gestione e Approfondimenti</p>
               </div>
 
               {/* Tecniche per gestirlo */}
-              <div className="bg-gradient-to-br from-accent-50 to-accent-100 p-6 rounded-xl">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <div style={{ background: 'rgba(243, 131, 44, 0.1)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(243, 131, 44, 0.3)' }}>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                   🛠️ Tecniche per Gestirlo
                 </h2>
-                <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                <div style={{ color: '#F3832C', lineHeight: '1.75', whiteSpace: 'pre-wrap' }}>
                   {bias["Tecniche per gestirlo"]}
                 </div>
               </div>
 
               {/* Attività Esperienziale */}
-              <div className="bg-yellow-50 p-6 rounded-xl border-2 border-yellow-200">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <div style={{ background: 'rgba(234, 179, 8, 0.1)', padding: '1.5rem', borderRadius: '12px', border: '2px solid rgba(234, 179, 8, 0.3)' }}>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                   🎯 Attività Esperienziale di Aula
                 </h2>
-                <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                <div style={{ color: '#F3832C', lineHeight: '1.75', whiteSpace: 'pre-wrap' }}>
                   {bias["Attività Esperienziale di Aula"]}
                 </div>
               </div>
 
               {/* Fonti */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                   📚 Fonti
                 </h2>
-                <p className="text-gray-700 leading-relaxed italic">
+                <p style={{ color: '#F3832C', lineHeight: '1.75', fontStyle: 'italic' }}>
                   {bias.Fonti}
                 </p>
               </div>
 
               {/* Tag Cluster */}
               {bias["TAG LUSTER"] && (
-                <div className="bg-gray-100 p-6 rounded-xl">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0094B5', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: '"Syne", sans-serif' }}>
                     🏷️ Tag Cluster
                   </h2>
                   <div className="flex flex-wrap gap-3">
-                    <span className="inline-block bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
+                    <span style={{ display: 'inline-block', background: 'linear-gradient(135deg, #0094B5 0%, #F3832C 100%)', color: 'white', padding: '0.5rem 1rem', borderRadius: '9999px', fontSize: '0.875rem', fontWeight: 600, boxShadow: '0 4px 12px rgba(0, 148, 181, 0.3)' }}>
                       {formatTag(bias["TAG LUSTER"])}
                     </span>
                   </div>
