@@ -1,215 +1,75 @@
-# 🧠 Cognitive Bias Explorer
+<p align="center">
+  <img src="assets/banner.png" alt="Cognitive Bias Explorer: 231 bias cognitivi da esplorare e comprendere" width="100%">
+</p>
 
-Applicazione web moderna per esplorare e comprendere 231 bias cognitivi.
+<p align="center">
+  <a href="https://ai-utati-bias-explorer.vercel.app"><img alt="Demo online" src="https://img.shields.io/badge/demo-online-006E87?labelColor=0F2A44&style=flat-square"></a>
+  <img alt="231 bias" src="https://img.shields.io/badge/bias-231-006E87?labelColor=0F2A44&style=flat-square">
+  <img alt="React" src="https://img.shields.io/badge/React-18-006E87?labelColor=0F2A44&style=flat-square">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-006E87?labelColor=0F2A44&style=flat-square">
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-006E87?labelColor=0F2A44&style=flat-square">
+</p>
 
-**Software Realizzato dal Dr Roberto Micarelli ([AI-utati](https://github.com/RobertoMicarelli))**
+**Cerca un bias, capiscilo, portalo in aula.** Un'applicazione web per esplorare 231 bias cognitivi, ognuno con descrizione, tecniche per gestirlo, esempio reale, vantaggi, svantaggi e un'attività da fare con un gruppo.
 
-I contenuti sui Bias cognitivi sono tratti dal libro: **["Gli errori della mente"](https://amzn.to/3JnVYkW)** di Mondino L., Brambilla L.
+## In 30 secondi
 
-## 🎯 Caratteristiche
+| Scheda | Dettaglio |
+|---|---|
+| **Cos'è** | Un dizionario interattivo dei bias cognitivi |
+| **Per chi** | Formatori, coach, chi lavora sul decision-making, chi studia psicologia o economia comportamentale |
+| **Come provarlo** | [Apri la demo](https://ai-utati-bias-explorer.vercel.app) |
 
-- **Homepage accattivante**: Presentazione con immagine del Cognitive Bias Codex
-- **Ricerca multipla**:
-  - Dropdown con tutti i 231 bias
-  - Ricerca libera per nome
-  - Ricerca libera nella descrizione
-  - Filtri per tag (107 tag unici)
-- **Risultati**: Lista tabellare con nome e descrizione abbreviata (200 caratteri)
-- **Scheda dettaglio**: 2 pagine di visualizzazione complete
-  - **Pagina 1**: Bias, Descrizione, Contestualizzazione, Vantaggi, Svantaggi
-  - **Pagina 2**: Tecniche per gestirlo, Attività Esperienziale, Fonti, Tag Cluster
-- **Navigazione intuitiva**: Frecce avanti/indietro tra bias, paginazione 1-2
+## Cosa puoi fare
 
-## 🛠️ Stack Tecnologico
+| Funzione | Come funziona |
+|---|---|
+| **Trovare un bias** | Elenco completo, ricerca per nome o nel testo della descrizione, filtro per tag |
+| **Leggere la scheda** | Due pagine per bias: la prima con descrizione, contesto reale, vantaggi e svantaggi; la seconda con tecniche per gestirlo, attività esperienziale d'aula, fonti |
+| **Passare da un bias all'altro** | Frecce avanti e indietro dalla scheda |
+| **Partire dal quadro generale** | Homepage con il Cognitive Bias Codex |
 
-- **React 18** + TypeScript
-- **Tailwind CSS** per lo styling
-- **React Router v6** per la navigazione
-- **Vite** come build tool
+## Cosa contiene ogni scheda
 
-## 📦 Installazione
+`Bias` · `Descrizione` · `Tecniche per gestirlo` · `Contestualizzazione nel Reale` · `Vantaggi` · `Svantaggi` · `Attività Esperienziale di Aula` · `Fonti` · `Tag`
 
-### Prerequisiti
-- Node.js 18+ 
-- npm o yarn
+## Per l'aula
 
-### Setup
+- **Formazione aziendale:** workshop sul decision-making, partendo da un bias alla volta.
+- **Coaching:** rendere visibili le distorsioni cognitive.
+- **Università:** corsi di psicologia ed economia comportamentale.
+- **Studio personale:** allenare il pensiero critico.
+
+## Avvio in locale
 
 ```bash
-# Installa le dipendenze
 npm install
-
-# Avvia il server di sviluppo
-npm run dev
-
-# Build per produzione
-npm run build
-
-# Preview della build
-npm run preview
+npm run dev        # sviluppo
+npm run build      # build di produzione
+npm run preview    # anteprima della build
 ```
 
-## 📁 Struttura del Progetto
+Serve Node.js 18 o successivo. Il progetto è già configurato per Vercel (build `npm run build`, output `dist`).
 
-```
-cognitive-bias-explorer/
-├── src/
-│   ├── components/          # Componenti riutilizzabili (future espansioni)
-│   ├── pages/
-│   │   ├── HomePage.tsx     # Schermata principale con presentazione
-│   │   ├── SearchPage.tsx   # Ricerca avanzata e filtri
-│   │   └── BiasDetailPage.tsx # Dettaglio bias (2 pagine)
-│   ├── types/
-│   │   └── bias.ts          # Type definitions
-│   ├── utils/
-│   │   └── biasUtils.ts     # Utility functions (filtri, ricerca)
-│   ├── data/
-│   │   └── biases.json      # Dataset completo (231 bias)
-│   ├── App.tsx              # Componente principale con routing
-│   ├── main.tsx             # Entry point
-│   └── index.css            # Stili globali + Tailwind
-├── index.html
-├── package.json
-├── vite.config.ts
-├── tailwind.config.js
-└── tsconfig.json
-```
+## Come è fatto
 
-## 🎨 Design System
+| Tecnologia | Ruolo |
+|---|---|
+| React 18 + TypeScript | Interfaccia |
+| Tailwind CSS | Stili |
+| React Router v6 | Navigazione |
+| Vite | Build |
 
-### Colori Principali
-- **Primary**: Blu (#0ea5e9) - Navigazione e CTA principali
-- **Accent**: Magenta (#d946ef) - Tag e highlights
-- **Gradients**: Utilizzati per creare depth e modernità
+Struttura: pagine in `src/pages/` (Home, Ricerca, Dettaglio), dati in `src/data/biases.json`, filtri in `src/utils/`. Per le idee future vedi [ROADMAP.md](ROADMAP.md).
 
-### Componenti UI
-- **Card**: Container con shadow e hover effects
-- **Tag**: Chip colorati con hover interactions
-- **Buttons**: Primary (gradient) e Secondary (outline)
-- **Input fields**: Focus states con ring colorati
+## Fonti e licenza
 
-### Animazioni
-- **fadeIn**: Entrata graduale degli elementi
-- **slideInRight**: Transizioni laterali
-- **hover effects**: Scale e shadow su interazioni
+I contenuti sui bias sono tratti dal libro **[Gli errori della mente](https://amzn.to/3JnVYkW)** di Mondino L. e Brambilla L. (ACS, Milano, 2022), la prima enciclopedia italiana dei bias riconosciuti in letteratura.
 
-## 🚀 Funzionalità Principali
-
-### 1. Homepage (/)
-- Hero section con titolo e sottotitoli personalizzabili
-- Immagine del Cognitive Bias Codex
-- Statistiche: 231 bias, 107 tag, 11 categorie
-- Ricerca rapida con redirect a SearchPage
-
-### 2. Search Page (/search)
-- **Dropdown**: Selezione diretta da lista completa
-- **Ricerca nome**: Filtro in tempo reale per nome bias
-- **Ricerca descrizione**: Filtro nel testo della descrizione
-- **Tag cliccabili**: Multi-selezione con visual feedback
-- **Risultati dinamici**: Counter aggiornato in tempo reale
-- **Clear filters**: Reset rapido di tutti i filtri
-
-### 3. Detail Page (/bias/:id)
-- **Navigazione bias**: Frecce prev/next per esplorare
-- **2 pagine**: Toggle tra info principali e approfondimenti
-- **Formattazione ricca**: Box colorati per vantaggi/svantaggi
-- **Tag visualizzati**: Con cluster se disponibile
-- **Scroll to top**: Automatico al cambio pagina
-
-## 💡 Miglioramenti Futuri
-
-- [ ] Export PDF della scheda bias
-- [ ] Comparazione side-by-side di 2 bias
-- [ ] Sistema di preferiti/bookmark
-- [ ] Quiz interattivo per testare la conoscenza
-- [ ] Dark mode
-- [ ] PWA support per uso offline
-- [ ] Sistema di annotazioni personali
-- [ ] Ricerca semantica con AI
-
-## 📊 Dati
-
-Il dataset contiene **231 bias cognitivi** con i seguenti campi:
-- Bias (nome)
-- Descrizione
-- Tecniche per gestirlo
-- Contestualizzazione nel Reale
-- Vantaggi
-- Svantaggi
-- Attività Esperienziale di Aula
-- Fonti
-- TAG 1
-- TAG 2
-- TAG CLUSTER
-
-**Tag totali unici**: 107 (da #Apprendimento a #Vendita)
-
-## 🎓 Uso Didattico
-
-Questa applicazione è ideale per:
-- **Formazione aziendale**: Workshop su decision-making
-- **Coaching**: Consapevolezza delle distorsioni cognitive
-- **Università**: Corsi di psicologia, economia comportamentale
-- **Self-learning**: Miglioramento personale e pensiero critico
-
-## 📝 Note Tecniche
-
-### Performance
-- Lazy loading delle immagini
-- Memoizzazione dei filtri (useMemo)
-- Virtual scrolling potenziale per lista lunga
-
-### Accessibilità
-- Semantic HTML
-- Keyboard navigation
-- ARIA labels (da implementare completamente)
-- Contrasti colore WCAG AA
-
-### SEO
-- Meta tags configurabili
-- URLs semantici (/bias/nome-bias potenziale)
-- OpenGraph tags (da implementare)
-
-## 🐛 Troubleshooting
-
-**Problema**: Immagine non visualizzata  
-**Soluzione**: Verifica che il path dell'immagine sia corretto in HomePage.tsx
-
-**Problema**: Dati non caricati  
-**Soluzione**: Controlla che biases.json sia in src/data/
-
-**Problema**: Errori TypeScript  
-**Soluzione**: `npm install` per assicurarsi che tutte le dipendenze siano installate
-
-## 🚀 Deploy
-
-### GitHub
-Repository: [https://github.com/RobertoMicarelli/AI-utati_Bias_Explorer](https://github.com/RobertoMicarelli/AI-utati_Bias_Explorer)
-
-### Vercel
-L'applicazione può essere deployata su Vercel con pochi click:
-
-1. Connetti il repository GitHub a Vercel
-2. Vercel rileverà automaticamente che è un progetto Vite
-3. Le impostazioni di build sono già configurate:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-   - Install Command: `npm install`
-
-## 📚 Riferimenti
-
-I contenuti sui bias cognitivi presenti in questa applicazione sono tratti dal libro:
-
-**["Gli errori della mente"](https://amzn.to/3JnVYkW)**  
-*Autori: Mondino L., Brambilla L.*  
-*Editore: ACS (Milano), 2022*
-
-Il volume rappresenta la prima enciclopedia italiana contenente tutti i bias riconosciuti in letteratura: 234 errori cognitivi, ciascuno corredato da approfondimenti specifici.
-
-## 📄 Licenza
-
-Progetto per uso interno/didattico. I dati sui bias cognitivi sono tratti dal libro "Gli errori della mente" di Mondino L., Brambilla L.
+Progetto per uso interno e didattico.
 
 ---
 
-**Sviluppato con ❤️ dal Dr Roberto Micarelli (AI-utati) utilizzando React, TypeScript e Tailwind CSS**
+**AI-utati** · By Roberto Micarelli · Formatore, Coach, Consulente · [ai-utati.it](https://www.ai-utati.it)
+
+**Provalo ora:** apri la demo, scegli un bias che riconosci nel tuo lavoro e leggi la sua attività d'aula.
