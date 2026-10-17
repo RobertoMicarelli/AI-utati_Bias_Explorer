@@ -70,6 +70,6 @@ Progetto per uso interno e didattico.
 
 ---
 
-**AI-utati** · By Roberto Micarelli · Formatore, Coach, Consulente · [ai-utati.it](https://www.ai-utati.it)
+**AI-utati** · By Roberto Micarelli · Formatore, Coach, Consulente · [ai-utati.it](https://www.ai-utati.it) · [Scheda sul sito](https://www.ai-utati.it/risorse/cognitive-bias-explorer/) · [Tutti i progetti](https://github.com/RobertoMicarelli/brand-ai-utati)
 
 **Provalo ora:** apri la demo, scegli un bias che riconosci nel tuo lavoro e leggi la sua attività d'aula.
